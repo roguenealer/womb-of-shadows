@@ -173,6 +173,37 @@
         </div>
     </section>
 
+    <!-- Follow / Social -->
+    <section class="section follow" id="follow">
+        <div class="container">
+            <div class="follow-inner">
+                <p class="follow-label">Follow the story</p>
+                <div class="follow-links">
+                    <a href="https://www.instagram.com/roguenealer" target="_blank" rel="noopener" class="follow-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20">
+                            <rect x="2" y="2" width="20" height="20" rx="5"/>
+                            <circle cx="12" cy="12" r="5"/>
+                            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+                        </svg>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="https://www.tiktok.com/@roguenealer" target="_blank" rel="noopener" class="follow-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                            <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.51a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.43v-7.15a8.16 8.16 0 005.58 2.18V11.2a4.85 4.85 0 01-2.18-.52 4.83 4.83 0 01-1.82-1.81V6.69z"/>
+                        </svg>
+                        <span>TikTok</span>
+                    </a>
+                    <a href="https://www.reddit.com/user/roguenealer" target="_blank" rel="noopener" class="follow-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm6.67-10a1.46 1.46 0 00-2.47-1 7.12 7.12 0 00-3.85-1.23l.65-3.12 2.16.45a1.04 1.04 0 101.04-1.11 1.04 1.04 0 00-.96.68l-2.41-.52a.26.26 0 00-.31.2l-.73 3.5a7.09 7.09 0 00-3.9 1.23 1.46 1.46 0 10-1.61 2.39 2.87 2.87 0 00-.05.53c0 2.7 3.14 4.88 7.02 4.88 3.87 0 7.01-2.19 7.01-4.88 0-.18-.02-.36-.05-.53a1.46 1.46 0 00.85-1.33zM8.68 13.04a1.04 1.04 0 112.08 0 1.04 1.04 0 01-2.08 0zm5.93 2.81c-.73.72-2.12.78-2.6.78-.49 0-1.88-.06-2.6-.78a.26.26 0 01.37-.37c.46.45 1.43.61 2.23.61.8 0 1.77-.16 2.23-.61a.26.26 0 11.37.37zm-.2-1.77a1.04 1.04 0 110-2.08 1.04 1.04 0 010 2.08z"/>
+                        </svg>
+                        <span>Reddit</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Subscribe -->
     <section class="section subscribe" id="subscribe">
         <div class="container">
@@ -244,25 +275,22 @@
             <h2>What Did You Feel?</h2>
             <p class="comments-subtitle">
                 Reactions, theories, questions. The compound doesn't judge.<br>
-                <em>Sign in with GitHub to comment.</em>
+                <em>No account needed. Just your words.</em>
             </p>
-            <div class="giscus-container">
-                <script src="https://giscus.app/client.js"
-                    data-repo="roguenealer/womb-of-shadows"
-                    data-repo-id="R_kgDOR3hY8A"
-                    data-category="General"
-                    data-category-id="DIC_kwDOR3hY8M4C52Ka"
-                    data-mapping="pathname"
-                    data-strict="0"
-                    data-reactions-enabled="1"
-                    data-emit-metadata="0"
-                    data-input-position="top"
-                    data-theme="dark_tritanopia"
-                    data-lang="en"
-                    data-loading="lazy"
-                    crossorigin="anonymous"
-                    async>
-                </script>
+            <div class="reaction-form-wrap">
+                <form class="reaction-form" id="reaction-form">
+                    <input type="text" id="reaction-name" placeholder="Your name (optional)" class="reaction-input reaction-input-name">
+                    <textarea id="reaction-comment" placeholder="What stayed with you after reading?" rows="4" required class="reaction-textarea"></textarea>
+                    <div class="reaction-form-footer">
+                        <span class="reaction-privacy">Anonymous submissions welcome</span>
+                        <button type="submit" class="btn btn-primary">Send Reaction</button>
+                    </div>
+                </form>
+                <div class="reaction-success" id="reaction-success" style="display:none;">
+                    <div class="success-icon">&#10003;</div>
+                    <p class="success-text">Received.</p>
+                    <p class="success-sub">The compound remembers everything.</p>
+                </div>
             </div>
         </div>
     </section>

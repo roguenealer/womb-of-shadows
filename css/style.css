@@ -719,6 +719,65 @@ img { max-width: 100%; height: auto; display: block; }
     transform: translateY(-2px);
 }
 
+/* --- Follow / Social Bar --- */
+.follow {
+    border-top: 1px solid var(--gray-800);
+    padding: 2.5rem 0;
+}
+
+.follow-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.follow-label {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+}
+
+.follow-links {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.follow-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--gray-300);
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--gray-700);
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+.follow-link:hover {
+    color: var(--amber);
+    border-color: var(--amber);
+    background: var(--amber-dim);
+}
+
+.follow-link svg {
+    flex-shrink: 0;
+    transition: color 0.3s;
+}
+
+@media (max-width: 600px) {
+    .follow-inner { flex-direction: column; gap: 1.25rem; }
+    .follow-links { flex-wrap: wrap; justify-content: center; }
+}
+
 /* --- Comments Section --- */
 .comments {
     border-top: 1px solid var(--gray-800);
@@ -743,13 +802,70 @@ img { max-width: 100%; height: auto; display: block; }
     color: var(--gray-600);
 }
 
-.giscus-container {
-    max-width: 700px;
+/* --- Reaction Form --- */
+.reaction-form-wrap {
+    max-width: 600px;
 }
 
-/* Override giscus iframe to blend with dark theme */
-.giscus-container .giscus {
-    max-width: 100%;
+.reaction-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.reaction-input,
+.reaction-textarea {
+    background: var(--gray-900);
+    border: 1px solid var(--gray-700);
+    color: var(--white);
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    padding: 0.85rem 1rem;
+    border-radius: 2px;
+    outline: none;
+    transition: border-color 0.3s;
+    width: 100%;
+}
+
+.reaction-input-name {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    max-width: 280px;
+}
+
+.reaction-textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+}
+
+.reaction-input:focus,
+.reaction-textarea:focus {
+    border-color: var(--amber);
+}
+
+.reaction-input::placeholder,
+.reaction-textarea::placeholder {
+    color: var(--gray-600);
+}
+
+.reaction-form-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.reaction-privacy {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    color: var(--gray-600);
+}
+
+@media (max-width: 480px) {
+    .reaction-form-footer { flex-direction: column; align-items: flex-start; }
+    .reaction-input-name { max-width: 100%; }
 }
 
 /* --- Footer --- */

@@ -119,7 +119,7 @@ function initParticles() {
 // --- Scroll-triggered fade-in ---
 function initScrollAnimations() {
     const targets = document.querySelectorAll(
-        '.book-text, .read-gate, .chapter-card, .subscribe-inner, .author-content'
+        '.book-text, .read-gate, .chapter-card, .subscribe-inner, .author-content, .follow-inner, .reaction-form-wrap'
     );
 
     targets.forEach(el => el.classList.add('fade-in'));
@@ -214,6 +214,35 @@ if (subscribeForm) {
             const successEl = document.getElementById('subscribe-success');
             if (successEl) successEl.style.display = 'block';
         }, 800);
+    });
+}
+
+// --- Reaction form: submit to Google Forms ---
+const reactionForm = document.getElementById('reaction-form');
+if (reactionForm) {
+    reactionForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('reaction-name').value;
+        const comment = document.getElementById('reaction-comment').value;
+        const btn = reactionForm.querySelector('button');
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+
+        const body = 'entry.1331793035=' + encodeURIComponent(name) +
+                     '&entry.269667257=' + encodeURIComponent(comment);
+
+        fetch('https://docs.google.com/forms/d/e/1FAIpQLSfa0Tz3xS42PYi8F1QGTcWto6Uqqs-mn4W9Vth1W0_9nP9rDA/formResponse', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: body,
+            mode: 'no-cors'
+        }).catch(() => {});
+
+        setTimeout(() => {
+            reactionForm.style.display = 'none';
+            const successEl = document.getElementById('reaction-success');
+            if (successEl) successEl.style.display = 'block';
+        }, 700);
     });
 }
 
