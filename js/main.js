@@ -178,11 +178,14 @@ if (gateForm) {
             btn.style.background = '#2a7a3a';
             gateForm.querySelector('input').value = '';
 
-            setTimeout(() => {
-                btn.textContent = origText;
-                btn.style.background = '';
-                btn.disabled = false;
-            }, 3000);
+            // Show success message, hide form
+            const successEl = document.getElementById('gate-success');
+            if (successEl) {
+                gateForm.style.display = 'none';
+                gateForm.previousElementSibling.style.display = 'none'; // hide description
+                document.querySelector('.gate-icon')?.style.display && (document.querySelector('.read-gate-icon').style.display = 'none');
+                successEl.style.display = 'block';
+            }
         }, 800);
     });
 }

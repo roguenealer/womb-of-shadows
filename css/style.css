@@ -73,6 +73,111 @@ img { max-width: 100%; height: auto; display: block; }
     margin-bottom: 2rem;
 }
 
+/* --- Promo Banner --- */
+.promo-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background: linear-gradient(90deg, #1a1208, #2a1a0a, #1a1208);
+    border-bottom: 1px solid rgba(196, 135, 58, 0.3);
+    padding: 10px 0;
+    text-align: center;
+}
+
+.promo-inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.promo-text {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: var(--gray-300);
+    letter-spacing: 0.02em;
+}
+
+.promo-cta {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amber);
+    white-space: nowrap;
+    padding: 5px 16px;
+    border: 1px solid var(--amber);
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+.promo-cta:hover {
+    background: var(--amber);
+    color: var(--black);
+}
+
+/* Push nav down to account for promo banner */
+.nav {
+    top: 40px;
+}
+
+/* Push hero down to account for promo banner */
+.hero {
+    padding-top: 7rem;
+}
+
+@media (max-width: 768px) {
+    .promo-banner { padding: 8px 0; }
+    .promo-text { font-size: 0.7rem; }
+    .promo-inner { gap: 0.75rem; }
+    .nav { top: 56px; }
+    .hero { padding-top: 6rem; }
+}
+
+/* --- Success State --- */
+.gate-success {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.success-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(42, 122, 58, 0.15);
+    border: 2px solid #2a7a3a;
+    color: #2a7a3a;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.success-text {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    color: var(--white-bright);
+    margin-bottom: 0.75rem;
+}
+
+.success-sub {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--gray-400);
+    margin-bottom: 0.5rem;
+}
+
+.success-sub strong {
+    color: var(--amber);
+}
+
 /* --- Navigation --- */
 .nav {
     position: fixed;

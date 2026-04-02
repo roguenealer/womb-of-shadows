@@ -44,6 +44,14 @@
         </div>
     </nav>
 
+    <!-- Promo Banner -->
+    <div class="promo-banner" id="promo-banner">
+        <div class="promo-inner">
+            <span class="promo-text">Free sample chapters — enter your email and download instantly. You'll be notified when the full book launches.</span>
+            <a href="#read" class="promo-cta">Get the Free PDF &darr;</a>
+        </div>
+    </div>
+
     <!-- Hero -->
     <section class="hero" id="hero">
         <div class="hero-particles" id="particles"></div>
@@ -57,7 +65,7 @@
                 <p class="hero-author">by Roguenealer Stevens</p>
                 <p class="hero-tagline">The compound doesn't just trap them.<br>It makes the trap feel like home.</p>
                 <div class="hero-actions">
-                    <a href="#read" class="btn btn-primary">Read the First 3 Chapters Free</a>
+                    <a href="#read" class="btn btn-primary">Get the Free Sample PDF</a>
                     <a href="#subscribe" class="btn btn-secondary">Get Launch Updates</a>
                 </div>
             </div>
@@ -126,12 +134,18 @@
                             <path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
                         </svg>
                     </div>
-                    <p>Enter your email to unlock the free sample — Chapters 1–3 plus the first Synapse interlude.</p>
+                    <p>Enter your email to get the free sample PDF instantly. When the full book launches, we'll let you know.</p>
                     <form class="gate-form" id="gate-form">
                         <input type="email" name="email" id="gate-email" placeholder="your@email.com" required class="gate-input">
-                        <button type="submit" class="btn btn-primary">Send Me the Sample</button>
+                        <button type="submit" class="btn btn-primary">Download Free PDF</button>
                     </form>
-                    <p class="gate-note">PDF download. No spam. Unsubscribe anytime.</p>
+                    <p class="gate-note">Instant download. You'll also be notified when the full book releases. No spam. Unsubscribe anytime.</p>
+                    <div class="gate-success" id="gate-success" style="display:none;">
+                        <div class="success-icon">&#10003;</div>
+                        <p class="success-text">Your download has started!</p>
+                        <p class="success-sub">Check your downloads folder for <strong>Womb_of_Shadows_Sample_Chapters.pdf</strong></p>
+                        <p class="success-sub">You're on the launch list — we'll email you when the full book is available.</p>
+                    </div>
                 </div>
             </div>
             <div class="read-chapters">
