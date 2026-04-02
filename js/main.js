@@ -156,7 +156,7 @@ if (gateForm) {
         btn.disabled = true;
 
         // Subscribe to Buttondown in background
-        fetch('https://buttondown.com/api/emails/embed-subscribe/roguenealerstevens', {
+        fetch('https://buttondown.com/api/emails/embed-subscribe/roguenealer', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: 'email=' + encodeURIComponent(email),
@@ -200,7 +200,7 @@ if (subscribeForm) {
         btn.textContent = 'Sending...';
         btn.disabled = true;
 
-        fetch('https://buttondown.com/api/emails/embed-subscribe/roguenealerstevens', {
+        fetch('https://buttondown.com/api/emails/embed-subscribe/roguenealer', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: 'email=' + encodeURIComponent(email),
