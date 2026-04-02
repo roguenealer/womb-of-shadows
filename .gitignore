@@ -1,0 +1,14 @@
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Build artifacts
+sample/*_raw.txt
+sample/sample_clean.md
+sample/full_sample.md
+sample/*.py
+sample/clean.py
+sample/generate_pdf.py
+sample/generate_pdf2.py
+sample/build_pdf.py
