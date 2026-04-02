@@ -190,6 +190,33 @@ if (gateForm) {
     });
 }
 
+// --- Subscribe form: Buttondown signup + success state ---
+const subscribeForm = document.getElementById('subscribe-form');
+if (subscribeForm) {
+    subscribeForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('subscribe-email').value;
+        const btn = subscribeForm.querySelector('button');
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+
+        fetch('https://buttondown.com/api/emails/embed-subscribe/roguenealerstevens', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: 'email=' + encodeURIComponent(email),
+            mode: 'no-cors'
+        }).catch(() => {});
+
+        setTimeout(() => {
+            subscribeForm.style.display = 'none';
+            const noteEl = document.getElementById('subscribe-note');
+            if (noteEl) noteEl.style.display = 'none';
+            const successEl = document.getElementById('subscribe-success');
+            if (successEl) successEl.style.display = 'block';
+        }, 800);
+    });
+}
+
 // --- Smooth scroll for anchor links ---
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {

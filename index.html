@@ -179,11 +179,16 @@
             <div class="subscribe-inner">
                 <h2>The compound is patient.<br>The launch is not.</h2>
                 <p>Get notified when <em>Womb of Shadows</em> releases. Plus early access to cover reveals, deleted scenes, and Book Two updates.</p>
-                <form class="subscribe-form" action="https://buttondown.com/api/emails/embed-subscribe/roguenealerstevens" method="post" target="_blank">
-                    <input type="email" name="email" placeholder="your@email.com" required class="subscribe-input">
+                <form class="subscribe-form" id="subscribe-form">
+                    <input type="email" name="email" id="subscribe-email" placeholder="your@email.com" required class="subscribe-input">
                     <button type="submit" class="btn btn-primary">Notify Me at Launch</button>
                 </form>
-                <p class="subscribe-note">Launching September 2026. No spam. Unsubscribe anytime.</p>
+                <p class="subscribe-note" id="subscribe-note">Launching September 2026. No spam. Unsubscribe anytime.</p>
+                <div class="gate-success" id="subscribe-success" style="display:none;">
+                    <div class="success-icon">&#10003;</div>
+                    <p class="success-text">You're on the list!</p>
+                    <p class="success-sub">We'll email you the moment <strong>Womb of Shadows</strong> launches in September 2026.</p>
+                </div>
             </div>
         </div>
     </section>
