@@ -614,6 +614,39 @@ img { max-width: 100%; height: auto; display: block; }
     transform: translateY(-2px);
 }
 
+/* --- Comments Section --- */
+.comments {
+    border-top: 1px solid var(--gray-800);
+}
+
+.comments h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 600;
+    color: var(--white-bright);
+    margin-bottom: 1rem;
+}
+
+.comments-subtitle {
+    color: var(--gray-400);
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.comments-subtitle em {
+    font-size: 0.85rem;
+    color: var(--gray-600);
+}
+
+.giscus-container {
+    max-width: 700px;
+}
+
+/* Override giscus iframe to blend with dark theme */
+.giscus-container .giscus {
+    max-width: 100%;
+}
+
 /* --- Footer --- */
 .footer {
     border-top: 1px solid var(--gray-800);
