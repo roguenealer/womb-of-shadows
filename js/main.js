@@ -155,12 +155,12 @@ if (gateForm) {
         btn.textContent = 'Sending...';
         btn.disabled = true;
 
-        // Subscribe to Buttondown in background
-        fetch('https://buttondown.com/api/emails/embed-subscribe/roguenealer', {
+        // Subscribe to launch list via Google Forms (Buttondown pending review)
+        fetch('https://docs.google.com/forms/d/e/1FAIpQLSeeIuLG4wc3rJjE8x5k3TyUAJii_jMh46rMbdacrWqayclb-A/formResponse', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: 'email=' + encodeURIComponent(email),
-            mode: 'no-cors' // Buttondown doesn't support CORS for embeds
+            body: 'entry.791413828=' + encodeURIComponent(email),
+            mode: 'no-cors'
         }).catch(() => {}); // Silent fail OK — PDF still delivers
 
         // Deliver the PDF immediately
@@ -200,10 +200,10 @@ if (subscribeForm) {
         btn.textContent = 'Sending...';
         btn.disabled = true;
 
-        fetch('https://buttondown.com/api/emails/embed-subscribe/roguenealer', {
+        fetch('https://docs.google.com/forms/d/e/1FAIpQLSeeIuLG4wc3rJjE8x5k3TyUAJii_jMh46rMbdacrWqayclb-A/formResponse', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: 'email=' + encodeURIComponent(email),
+            body: 'entry.791413828=' + encodeURIComponent(email),
             mode: 'no-cors'
         }).catch(() => {});
 
