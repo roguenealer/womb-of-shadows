@@ -144,6 +144,49 @@ function initScrollAnimations() {
     }
 }
 
+// --- Sample gate form: subscribe to Buttondown + instant PDF download ---
+const gateForm = document.getElementById('gate-form');
+if (gateForm) {
+    gateForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('gate-email').value;
+        const btn = gateForm.querySelector('button');
+        const origText = btn.textContent;
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+
+        // Subscribe to Buttondown in background
+        fetch('https://buttondown.com/api/emails/embed-subscribe/roguenealerstevens', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: 'email=' + encodeURIComponent(email),
+            mode: 'no-cors' // Buttondown doesn't support CORS for embeds
+        }).catch(() => {}); // Silent fail OK — PDF still delivers
+
+        // Deliver the PDF immediately
+        setTimeout(() => {
+            btn.textContent = 'Downloading...';
+            const link = document.createElement('a');
+            link.href = 'sample/Womb_of_Shadows_Sample.pdf';
+            link.download = 'Womb_of_Shadows_Sample_Chapters.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // Show success state
+            btn.textContent = 'Downloaded!';
+            btn.style.background = '#2a7a3a';
+            gateForm.querySelector('input').value = '';
+
+            setTimeout(() => {
+                btn.textContent = origText;
+                btn.style.background = '';
+                btn.disabled = false;
+            }, 3000);
+        }, 800);
+    });
+}
+
 // --- Smooth scroll for anchor links ---
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
