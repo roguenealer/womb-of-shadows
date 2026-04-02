@@ -5,7 +5,7 @@
 
 Dear [AGENT NAME],
 
-I am seeking representation for WOMB OF SHADOWS, a 70,000-word dark literary sci-fi horror novel — the first in a planned trilogy. Given your interest in [PERSONALIZED DETAIL — e.g., "genre-defying horror" / "literary fiction with biological dread" / "upmarket horror novels"], I believe this manuscript may be a strong fit for your list.
+I am seeking representation for WOMB OF SHADOWS, a 97,000-word dark literary sci-fi horror novel — the first in a planned trilogy. Given your interest in [PERSONALIZED DETAIL — e.g., "genre-defying horror" / "literary fiction with biological dread" / "upmarket horror novels"], I believe this manuscript may be a strong fit for your list.
 
 ---
 
@@ -21,7 +21,7 @@ As Evelyn races to understand the connection between her daughter's transformati
 
 ---
 
-WOMB OF SHADOWS is a 70,000-word dark literary sci-fi horror novel, the first in a planned trilogy. It will appeal to fans of Jeff VanderMeer's *Annihilation*, Agustina Bazterrica's *Tender Is the Flesh*, and Caitlin Starling's *The Luminous Dead*. The novel explores biological horror through the lens of family — the weaponization of love, the ethics of desperate science, and the bonds that consume us from the inside.
+WOMB OF SHADOWS is a 97,000-word dark literary sci-fi horror novel, the first in a planned trilogy. It will appeal to fans of Jeff VanderMeer's *Annihilation*, Agustina Bazterrica's *Tender Is the Flesh*, and Caitlin Starling's *The Luminous Dead*. The novel explores biological horror through the lens of family — the weaponization of love, the ethics of desperate science, and the bonds that consume us from the inside.
 
 I am a debut novelist. [OPTIONAL: Additional bio details.] Per your submission guidelines, I have included [FIRST 10 PAGES / FIRST 3 CHAPTERS / SYNOPSIS] below.
 

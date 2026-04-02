@@ -1,5 +1,5 @@
 # SYNOPSIS — Womb of Shadows (1 Page)
-## 70,000 words | Dark Literary Sci-Fi Horror | Book One of the GOTNA Trilogy
+## 97,000 words | Dark Literary Sci-Fi Horror | Book One of the GOTNA Trilogy
 
 ---
 
