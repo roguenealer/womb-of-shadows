@@ -25,6 +25,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Analytics (Google Analytics 4) — replace G-DT17MCMQZ6 with your Measurement ID from analytics.google.com -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DT17MCMQZ6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DT17MCMQZ6');
+      // Track buy + sample clicks as conversions
+      document.addEventListener('click', function(e){
+        var a = e.target.closest('a'); if(!a) return;
+        var href = a.getAttribute('href') || '';
+        if(href.indexOf('amazon.')>-1) gtag('event','buy_click',{link_url:href});
+        if(a.classList.contains('promo-cta')||a.classList.contains('nav-cta')) gtag('event','cta_click',{label:a.textContent.trim()});
+      });
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -71,6 +87,10 @@
                     <a href="https://www.amazon.com/dp/B0D6WY16L7" target="_blank" class="btn btn-primary">Buy Now on Amazon</a>
                     <a href="#read" class="btn btn-secondary">Read Free Sample</a>
                 </div>
+                <p class="hero-review" style="margin-top:1.6rem;font-style:italic;color:#d4a86a;font-size:1.05rem;line-height:1.5;max-width:30rem;">
+                    &ldquo;Literary horror with teeth, and the teeth are warm.&rdquo;
+                    <span style="display:block;font-style:normal;color:#8c9096;font-size:0.8rem;margin-top:0.4rem;letter-spacing:0.08em;">&mdash; JIM McLEOD, GINGER NUTS OF HORROR</span>
+                </p>
             </div>
         </div>
         <div class="scroll-indicator">
