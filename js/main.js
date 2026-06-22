@@ -47,72 +47,79 @@ if (navToggle) {
     });
 }
 
-// --- Ambient particles (hero section) ---
+// --- Ambient embers (hero section) — drift upward + reach toward the cursor ---
 function initParticles() {
-    const canvas = document.createElement('canvas');
     const container = document.getElementById('particles');
     if (!container) return;
-
+    const canvas = document.createElement('canvas');
     container.appendChild(canvas);
     const ctx = canvas.getContext('2d');
 
+    let W = 0, H = 0;
     function resize() {
-        canvas.width = container.offsetWidth;
-        canvas.height = container.offsetHeight;
+        W = container.offsetWidth;
+        H = container.offsetHeight;
+        canvas.width = W;
+        canvas.height = H;
     }
     resize();
     window.addEventListener('resize', resize);
 
-    const particles = [];
-    const count = Math.min(80, Math.floor(window.innerWidth / 15));
+    // The compound spreads through proximity — the embers lean toward your cursor.
+    const mouse = { x: -9999, y: -9999, active: false };
+    window.addEventListener('mousemove', (e) => {
+        const r = container.getBoundingClientRect();
+        mouse.x = e.clientX - r.left;
+        mouse.y = e.clientY - r.top;
+        mouse.active = mouse.x > -60 && mouse.x < W + 60 && mouse.y > -60 && mouse.y < H + 60;
+    }, { passive: true });
+    window.addEventListener('mouseout', () => { mouse.active = false; }, { passive: true });
 
-    for (let i = 0; i < count; i++) {
-        particles.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            size: Math.random() * 2 + 0.5,
-            speedX: (Math.random() - 0.5) * 0.3,
-            speedY: (Math.random() - 0.5) * 0.15 - 0.1,
-            opacity: Math.random() * 0.6 + 0.1,
-            pulse: Math.random() * Math.PI * 2,
-            pulseSpeed: Math.random() * 0.02 + 0.005,
-        });
+    const count = Math.min(150, Math.floor(window.innerWidth / 10));
+    const P = [];
+    function spawn(init) {
+        return {
+            x: Math.random() * W,
+            y: init ? Math.random() * H : H + 12,
+            r: Math.random() * 2.2 + 0.6,
+            vy: -(Math.random() * 0.35 + 0.12),
+            sway: Math.random() * 6.2832,
+            sp: Math.random() * 0.02 + 0.005,
+            amp: Math.random() * 0.5 + 0.2,
+            a: Math.random() * 0.5 + 0.2,
+            gold: Math.random() < 0.4,
+        };
     }
+    for (let i = 0; i < count; i++) P.push(spawn(true));
 
     function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        for (const p of particles) {
-            p.x += p.speedX;
-            p.y += p.speedY;
-            p.pulse += p.pulseSpeed;
-
-            // Wrap around
-            if (p.x < -10) p.x = canvas.width + 10;
-            if (p.x > canvas.width + 10) p.x = -10;
-            if (p.y < -10) p.y = canvas.height + 10;
-            if (p.y > canvas.height + 10) p.y = -10;
-
-            const opacity = p.opacity * (0.5 + 0.5 * Math.sin(p.pulse));
-
-            // Amber glow
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(196, 135, 58, ${opacity})`;
-            ctx.fill();
-
-            // Soft glow halo
-            if (p.size > 1.2) {
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size * 3, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(196, 135, 58, ${opacity * 0.1})`;
-                ctx.fill();
+        ctx.clearRect(0, 0, W, H);
+        for (let i = 0; i < P.length; i++) {
+            const p = P[i];
+            p.sway += p.sp;
+            p.x += Math.sin(p.sway) * p.amp;
+            p.y += p.vy;
+            if (mouse.active) {
+                const dx = mouse.x - p.x, dy = mouse.y - p.y, d2 = dx * dx + dy * dy;
+                if (d2 < 26000) {
+                    const d = Math.sqrt(d2) || 1, f = (1 - d / 161) * 0.9;
+                    p.x += dx / d * f;
+                    p.y += dy / d * f;
+                }
             }
+            if (p.y < -12 || p.x < -50 || p.x > W + 50) { P[i] = spawn(false); continue; }
+            const col = p.gold ? '232, 176, 96' : '196, 135, 58';
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r * 3, 0, 6.2832);
+            ctx.fillStyle = `rgba(${col}, ${p.a * 0.1})`;
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, 6.2832);
+            ctx.fillStyle = `rgba(${col}, ${p.a})`;
+            ctx.fill();
         }
-
         requestAnimationFrame(draw);
     }
-
     draw();
 }
 
