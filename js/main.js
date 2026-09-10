@@ -7,6 +7,15 @@
 const nav = document.getElementById('nav');
 let lastScroll = 0;
 
+// Keep the fixed navigation below the availability banner as its text wraps.
+const promoBanner = document.getElementById('promo-banner');
+if (promoBanner) {
+    const syncBannerHeight = () => document.documentElement.style.setProperty('--promo-height', `${promoBanner.offsetHeight}px`);
+    syncBannerHeight();
+    if ('ResizeObserver' in window) new ResizeObserver(syncBannerHeight).observe(promoBanner);
+    else window.addEventListener('resize', syncBannerHeight);
+}
+
 window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
     nav.classList.toggle('scrolled', scrollY > 60);
@@ -149,52 +158,6 @@ function initScrollAnimations() {
         // Fallback: show everything
         targets.forEach(el => el.classList.add('visible'));
     }
-}
-
-// --- Sample gate form: subscribe to Buttondown + instant PDF download ---
-const gateForm = document.getElementById('gate-form');
-if (gateForm) {
-    gateForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const email = document.getElementById('gate-email').value;
-        const btn = gateForm.querySelector('button');
-        const origText = btn.textContent;
-        btn.textContent = 'Sending...';
-        btn.disabled = true;
-
-        // Subscribe to launch list via Google Forms (Buttondown pending review)
-        fetch('https://docs.google.com/forms/d/e/1FAIpQLSeeIuLG4wc3rJjE8x5k3TyUAJii_jMh46rMbdacrWqayclb-A/formResponse', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: 'entry.791413828=' + encodeURIComponent(email),
-            mode: 'no-cors'
-        }).catch(() => {}); // Silent fail OK — PDF still delivers
-
-        // Deliver the PDF immediately
-        setTimeout(() => {
-            btn.textContent = 'Downloading...';
-            const link = document.createElement('a');
-            link.href = 'sample/Womb_of_Shadows_Sample.pdf';
-            link.download = 'Womb_of_Shadows_Sample_Chapters.pdf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-
-            // Show success state
-            btn.textContent = 'Downloaded!';
-            btn.style.background = '#2a7a3a';
-            gateForm.querySelector('input').value = '';
-
-            // Show success message, hide form
-            const successEl = document.getElementById('gate-success');
-            if (successEl) {
-                gateForm.style.display = 'none';
-                gateForm.previousElementSibling.style.display = 'none'; // hide description
-                document.querySelector('.gate-icon')?.style.display && (document.querySelector('.read-gate-icon').style.display = 'none');
-                successEl.style.display = 'block';
-            }
-        }, 800);
-    });
 }
 
 // --- Subscribe form: Buttondown signup + success state ---

@@ -6,23 +6,23 @@ Womb of Shadows featured as the lead pick. Static HTML, no build deps.
 import html
 from pathlib import Path
 
-ROOT = Path(r"C:\Users\rogue\projects\womb-of-shadows")
+ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "books-like"
 OUT.mkdir(exist_ok=True)
 
 SITE = "https://roguenealer.github.io/womb-of-shadows"
-AMAZON = "https://www.amazon.com/dp/B0D6WY16L7"
+AMAZON = "https://www.amazon.com/dp/B0HJBRHK89"
 
 FEATURED = {
     "title": "Womb of Shadows",
-    "series": "Gods of the New Age, Book One",
+    "series": "Gods of the New Age, Book One · Second Edition",
     "author": "Peter Neal",
     "cover": "../images/cover.jpg",
-    "pitch": ("A geneticist signs away her life to save her daughter, and the cure becomes a "
-              "black-site bioweapon that kills by manufacturing love. Literary dread, biological "
-              "wrongness, and a found family that starts to feel like a trap — told in a calm, "
-              "institutional voice that makes the unthinkable read ordinary."),
-    "cta": "Free on Kindle Unlimited",
+    "pitch": ("A mother watches her daughter change. A technician teaches a captive boy how to trust. "
+              "A weapons program sees something it can reproduce. Their lives meet in a place "
+              "where tenderness has physical consequences. Literary science-fiction horror "
+              "about family, bodily autonomy, and the terrible cost of belonging."),
+    "cta": "Kindle and print editions",
 }
 
 PAGES = {
@@ -217,8 +217,8 @@ def page(slug, cfg):
   <ol class="list">
 {items}
   </ol>
-  <p style="color:var(--muted);font-size:14px">Book Two, <em>The Frequency</em>, releases August 18, 2026 —
-  Womb of Shadows is the catch-up read.</p>
+  <p style="color:var(--muted);font-size:14px">Second editions of both books are available now. Begin with <em>Womb of Shadows</em>, then
+  <a href="https://www.amazon.com/dp/B0HJBS8TWX">continue with <em>The Frequency</em>, Book Two</a>. Kindle editions are included with a Kindle Unlimited subscription.</p>
 {more}
 </main>
 <footer><div class="wrap">
