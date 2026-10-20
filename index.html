@@ -25,6 +25,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/earning.css">
 
     <!-- Analytics (Google Analytics 4) — replace G-DT17MCMQZ6 with your Measurement ID from analytics.google.com -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DT17MCMQZ6"></script>
@@ -33,13 +34,7 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-DT17MCMQZ6');
-      // Track buy + sample clicks as conversions
-      document.addEventListener('click', function(e){
-        var a = e.target.closest('a'); if(!a) return;
-        var href = a.getAttribute('href') || '';
-        if(href.indexOf('amazon.')>-1) gtag('event','buy_click',{link_url:href});
-        if(a.classList.contains('promo-cta')||a.classList.contains('nav-cta')) gtag('event','cta_click',{label:a.textContent.trim()});
-      });
+      // Store and sample clicks are interest signals, not confirmed sales.
     </script>
 </head>
 <body>
@@ -52,7 +47,7 @@
             </button>
             <ul class="nav-links" id="nav-links">
                 <li><a href="#book">Book One</a></li>
-                <li><a href="#book-two">Book Two</a></li>
+                <li><a href="the-frequency/">Book Two</a></li>
                 <li><a href="#read">Read a Sample</a></li>
                 <li><a href="#author">Author</a></li>
                 <li><a href="#comments">Comments</a></li>
@@ -82,9 +77,14 @@
                 <p class="hero-author">by Peter Neal</p>
                 <p class="hero-tagline">The boy wants to be loved.<br>That is what makes him dangerous.</p>
                 <div class="hero-actions">
-                    <a href="https://www.amazon.com/dp/B0HJBRHK89" target="_blank" class="btn btn-primary">Buy Now on Amazon</a>
+                    <a href="https://www.amazon.com/dp/B0HJBRHK89" target="_blank" rel="noopener" class="btn btn-primary" data-intent="purchase" data-placement="hero">Buy Book One on Kindle</a>
                     <a href="#read" class="btn btn-secondary">Read the Opening</a>
                 </div>
+                <p class="format-links">Prefer print? <a href="https://www.amazon.com/dp/B0HJBP416M" target="_blank" rel="noopener" data-intent="purchase" data-placement="hero-print">Paperback</a> <span aria-hidden="true">·</span> <a href="https://www.amazon.com/dp/B0HJBM15NW" target="_blank" rel="noopener" data-intent="purchase" data-placement="hero-print">Hardcover</a></p>
+                <figure class="press-proof">
+                    <blockquote><p>&ldquo;literary horror with teeth, and the teeth are warm.&rdquo;</p></blockquote>
+                    <figcaption><a href="https://gnofhorror.com/womb-of-shadows-by-peter-neal-review/" target="_blank" rel="noopener">Jim McLeod · Ginger Nuts of Horror</a><span>May 2026 review of the original edition</span></figcaption>
+                </figure>
             </div>
         </div>
         <div class="scroll-indicator">
@@ -128,7 +128,7 @@
                 <p>The baby did not cry.</p>
                 <p>She had ways of objecting. A heel driven into Evelyn’s stomach. The head turned stubbornly from a bottle offered at the wrong temperature.</p>
             </blockquote>
-            <p class="sample-action"><a href="https://www.amazon.com/dp/B0HJBRHK89" target="_blank" rel="noopener" class="btn btn-primary">Continue the sample on Amazon</a></p>
+            <p class="sample-action"><a href="https://www.amazon.com/dp/B0HJBRHK89" target="_blank" rel="noopener" class="btn btn-primary" data-intent="sample" data-placement="opening">Continue the sample on Amazon</a></p>
             <p class="read-subtitle">Choose “Read sample” on the Amazon book page to continue before you buy.</p>
         </div>
     </section>
@@ -146,11 +146,12 @@
                     <p class="book-description">In Beijing, Sū Yànzhī finds a persistent signal at 18.3 hertz. She checks the equipment. The line remains. Then the distance between observing the signal and becoming involved begins to close.</p>
                     <p class="book-description">Read <em>Womb of Shadows</em> first, then follow the story beyond the laboratory in <em>The Frequency</em>.</p>
                     <div class="series-actions">
-                        <a href="https://www.amazon.com/dp/B0HJBS8TWX" target="_blank" rel="noopener" class="btn btn-primary">Kindle &amp; Sample</a>
+                        <a href="https://www.amazon.com/dp/B0HJBS8TWX" target="_blank" rel="noopener" class="btn btn-primary" data-intent="sample" data-placement="book-two">Kindle &amp; Sample</a>
                         <a href="https://www.amazon.com/dp/B0HJBMNSQB" target="_blank" rel="noopener" class="btn btn-secondary">Paperback</a>
                         <a href="https://www.amazon.com/dp/B0HJC25573" target="_blank" rel="noopener" class="btn btn-secondary">Hardcover</a>
                     </div>
                     <p class="subscribe-note">The Kindle edition is included with a Kindle Unlimited subscription.</p>
+                    <p class="book-detail-link"><a href="the-frequency/">Explore The Frequency: story, formats and reading order &rarr;</a></p>
                 </div>
             </div>
         </div>
@@ -283,5 +284,6 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/book-links.js"></script>
 </body>
 </html>

@@ -48,6 +48,7 @@ if (navToggle) {
     navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
             const spans = navToggle.querySelectorAll('span');
             spans[0].style.transform = '';
             spans[1].style.opacity = '';

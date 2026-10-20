@@ -1,0 +1,46 @@
+/* Reading and format choices for the existing book storefront. */
+.format-links {
+    margin-top: 1.1rem;
+    color: var(--gray-300);
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    line-height: 1.8;
+}
+.format-links a { margin-left: 0.45rem; text-decoration: underline; text-underline-offset: 0.2em; }
+.format-links span { margin-left: 0.45rem; }
+.press-proof {
+    margin-top: 1.8rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--amber);
+    max-width: 32rem;
+}
+.press-proof blockquote { color: var(--white); font-size: 1.3rem; font-style: italic; line-height: 1.4; }
+.press-proof figcaption { margin-top: 0.65rem; font-family: var(--font-sans); font-size: 0.72rem; line-height: 1.7; }
+.press-proof figcaption span { display: block; color: var(--gray-300); }
+.book-detail-link { margin-top: 1rem; font-family: var(--font-sans); font-size: 0.86rem; }
+.book-detail-link a { text-decoration: underline; text-underline-offset: 0.2em; }
+.frequency-page .hero-title { font-size: clamp(3rem, 7vw, 6rem); line-height: 1.05; }
+.frequency-page .hero-description { margin: 1.4rem 0; max-width: 35rem; font-size: 1.2rem; line-height: 1.6; color: var(--gray-300); }
+.frequency-page .hero-actions { flex-wrap: wrap; }
+.reading-order { padding-top: 4rem; padding-bottom: 4rem; background: var(--gray-900); }
+.reading-order h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; margin-bottom: 1rem; }
+.reading-order p { max-width: 44rem; margin-bottom: 1rem; }
+.reading-order .series-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+.book-questions { max-width: 760px; }
+.book-questions h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; margin-bottom: 2rem; }
+.book-questions h3 { font-size: 1.4rem; margin: 1.7rem 0 0.5rem; }
+.book-questions p { color: var(--gray-300); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--amber-light); outline-offset: 5px; }
+@media (max-width: 768px) {
+    .nav-toggle { position: relative; z-index: 1; }
+}
+@media (max-width: 600px) {
+    .hero-text { order: 1; }
+    .hero-cover { order: 2; }
+    .hero-content { gap: 2rem; }
+    .press-proof { margin-top: 1.3rem; }
+    .press-proof blockquote { font-size: 1.15rem; }
+    .frequency-page .hero-description { font-size: 1.08rem; }
+    .frequency-page .hero-actions .btn { width: 100%; text-align: center; }
+    .reading-order .series-actions .btn { width: 100%; text-align: center; }
+}
