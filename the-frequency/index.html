@@ -26,7 +26,9 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-DT17MCMQZ6');
+      if (window.location.hostname === 'roguenealer.github.io') {
+        gtag('config', 'G-DT17MCMQZ6');
+      }
     </script>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Book","name":"The Frequency","author":{"@type":"Person","name":"Peter Neal"},"inLanguage":"en","bookEdition":"Second Edition","isPartOf":{"@type":"CreativeWorkSeries","name":"Gods of the New Age"},"url":"https://roguenealer.github.io/womb-of-shadows/the-frequency/"}

@@ -33,7 +33,9 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-DT17MCMQZ6');
+      if (window.location.hostname === 'roguenealer.github.io') {
+        gtag('config', 'G-DT17MCMQZ6');
+      }
       // Store and sample clicks are interest signals, not confirmed sales.
     </script>
 </head>
