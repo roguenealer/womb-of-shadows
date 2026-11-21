@@ -1,13 +1,27 @@
 /* The printed sample works without scripts. Only native campaign URLs are used. */
 (function () {
     'use strict';
-    const kindle = 'https://www.amazon.com/dp/B0HJBS8TWX';
     const fromGloss = new URLSearchParams(location.search).get('utm_source') === 'the-gloss-book-club';
-    const destination = fromGloss
-        ? 'https://www.amazon.com/dp/B0HJBS8TWX?maas=maas_adg_0F1218277A1881D703F244081353F690_afap_abs&ref_=aa_maas&tag=maas'
-        : 'https://www.amazon.com/dp/B0HJBS8TWX?maas=maas_adg_F9F01D394EA8506BD37765C0448ECB5F_afap_abs&ref_=aa_maas&tag=maas';
-    document.querySelectorAll('a[href="' + kindle + '"]').forEach(link => {
-        link.href = destination;
+    const tagsByEdition = {
+        B0HJBS8TWX: { // Kindle
+            website: 'maas_adg_F9F01D394EA8506BD37765C0448ECB5F_afap_abs',
+            gloss: 'maas_adg_0F1218277A1881D703F244081353F690_afap_abs'
+        },
+        B0HJBMNSQB: { // Paperback
+            website: 'maas_adg_78A0ACF3574F631920B4A6AD171662AF_afap_abs',
+            gloss: 'maas_adg_1F6D31988EAA08AED1722651D074AD0E_afap_abs'
+        },
+        B0HJC25573: { // Hardcover
+            website: 'maas_adg_E61DF5690831A8154C914506E66F4F64_afap_abs',
+            gloss: 'maas_adg_DB78B384E741C70FF3C53F65EA741F78_afap_abs'
+        }
+    };
+    Object.entries(tagsByEdition).forEach(([asin, tags]) => {
+        const base = 'https://www.amazon.com/dp/' + asin;
+        const destination = base + '?maas=' + (fromGloss ? tags.gloss : tags.website) + '&ref_=aa_maas&tag=maas';
+        document.querySelectorAll('a[href="' + base + '"]').forEach(link => {
+            link.href = destination;
+        });
     });
 
     const passage = document.querySelector('#frequency-sample blockquote');
