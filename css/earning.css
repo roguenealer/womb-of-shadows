@@ -22,6 +22,24 @@
 .frequency-page .hero-title { font-size: clamp(3rem, 7vw, 6rem); line-height: 1.05; }
 .frequency-page .hero-description { margin: 1.4rem 0; max-width: 35rem; font-size: 1.2rem; line-height: 1.6; color: var(--gray-300); }
 .frequency-page .hero-actions { flex-wrap: wrap; }
+.opening-sample {
+    max-width: 36rem;
+    margin: 1rem 0 0.5rem;
+    text-align: left;
+    scroll-margin-top: calc(var(--promo-height, 3rem) + 5rem);
+}
+.opening-sample h2 { font-size: 1.25rem; font-weight: 600; color: var(--amber-light); }
+.opening-sample blockquote {
+    margin: 0.8rem 0 1rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--amber);
+    color: var(--white-bright);
+    font-size: clamp(1.35rem, 2.6vw, 1.75rem);
+    line-height: 1.35;
+}
+.opening-sample blockquote p + p { margin-top: 0.35rem; }
+.sample-question { color: var(--gray-300); font-size: 1.12rem; line-height: 1.45; }
+.sample-credit { margin-top: 0.65rem; color: var(--gray-300); font: 0.78rem/1.5 var(--font-sans); }
 .reading-order { padding-top: 4rem; padding-bottom: 4rem; background: var(--gray-900); }
 .reading-order h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; margin-bottom: 1rem; }
 .reading-order p { max-width: 44rem; margin-bottom: 1rem; }
